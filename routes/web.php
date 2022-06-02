@@ -14,8 +14,12 @@ use App\Http\Controllers\searchController;
 |
 */
 
+// Common way
 Route::get('/', [searchController::class, 'commonIndex']);
 Route::post('/', [searchController::class, 'commonSearch'])->name('common');
+Route::get('user/{user}', [searchController::class, 'commonFindUSerById'])->name('commonFindUser');
 
+// SOLID way
 Route::get('/newSearch', [searchController::class, 'shouldIndex']);
 Route::post('/newSearch', [searchController::class, 'shouldSearch'])->name('should');
+Route::get('/newUser/{user}', [searchController::class, 'shouldFindUSerById'])->name('shouldFindUser');

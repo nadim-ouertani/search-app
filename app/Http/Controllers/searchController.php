@@ -26,15 +26,26 @@ class searchController extends Controller
         ]);
     }
 
+    public function commonFindUSerById(User $user)
+    {
+        return view('user', ['user' => $user]);
+    }
+
     public function shouldIndex()
     {
         return view('newSearch');
     }
+
 
     public function shouldSearch(Searching $Searching, SearchUserRequest $searchUserRequest, UserRepository $userRepository)
     {
         return view('newSearch', [
             'results' => $Searching->user($searchUserRequest, $userRepository)
         ]);
+    }
+
+    public function shouldFindUSerById(User $user, UserRepository $userRepository)
+    {
+        return view('user', ['user' => $userRepository->find($user)]);
     }
 }

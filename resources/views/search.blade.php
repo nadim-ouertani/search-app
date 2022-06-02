@@ -135,7 +135,7 @@
                     @foreach($results as $key => $result)
                         <tr>
                             <td>{{$result->id}}</td>
-                            <td>{{$result->name}}</td>
+                            <td><a href="{{route('commonFindUser', $result)}}"> {{$result->name}} </a></td>
                             <td>{{$result->email}}</td>
                         </tr>
                     @endforeach

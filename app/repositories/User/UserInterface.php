@@ -9,5 +9,6 @@ interface UserInterface {
     public function getAll();
     public function find(User $user);
     public function delete(User $user);
+    public function edit(User $user);
     public function search($query);
 }

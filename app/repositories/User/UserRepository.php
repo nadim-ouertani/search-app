@@ -8,7 +8,6 @@ use App\Repositories\User\UserInterface as UserInterface;
 class UserRepository implements UserInterface
 {
     function __construct() {
-        //
     }
 
 
@@ -21,6 +20,11 @@ class UserRepository implements UserInterface
     public function find(User $user)
     {
         return User::find($user->id);
+    }
+
+    public function edit(User $user)
+    {
+        return $user->save();
     }
 
 
